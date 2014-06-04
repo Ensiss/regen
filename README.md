@@ -69,7 +69,7 @@ console.log(regen("my regexp"));
 | Symbol       | Description                                                        |
 | ------------ | ------------------------------------------------------------------ |
 | ( )          | Group characters and regexes together, may be nested               |
-| \|            | Output the left or right expression                               |
+| &#124;       | Output the left or right expression                                |
 
 ## Exemples
 
