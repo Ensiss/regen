@@ -43,6 +43,34 @@ You can then simply use the `regen` function.
 console.log(regen("my regexp"));
 ```
 
+## Syntax
+
+### Character classes
+
+| Symbol       | Description                                                                                          |
+| ------------ | ---------------------------------------------------------------------------------------------------- |
+| Alphanumeric | All alphanumeric characters (and special characters except if specified otherwise) output themselves |
+| [xyz]        | Output one of the characters specified in brackets. Each character has the same chance to appear     |
+| [a-z]        | Output a character from the specified range                                                          |
+| .            | Output any printable ASCII character                                                                 |
+
+### Repetition
+
+| Symbol       | Description                                                        |
+| ------------ | ------------------------------------------------------------------ |
+| {x}          | Output the previous selection `x` times, select randomly each time |
+| {,x}         | Output the selection randomly between 0 and `x` times              |
+| {x,y}        | Output the selection randomly between `x` and `y` times            |
+| {:x}         | Output the selection `x` times, keep selection                     |
+| ?            | Output the selection 0 or 1 time                                   |
+
+### Alternation and grouping
+
+| Symbol       | Description                                                        |
+| ------------ | ------------------------------------------------------------------ |
+| ( )          | Group characters and regexes together, may be nested               |
+| |            | Output the left or right expression                                |
+
 ## Exemples
 
 Ipv6: `([0-9a-f]{4}:){4}[0-9a-f]{4}`
