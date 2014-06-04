@@ -15,7 +15,7 @@ npm install -g re-gen
 Remove the `-g` flag to install locally.
 
 ### For the browser
-Download the [regen.js](https://github.com/Ensiss/regen/) file and put it in your project. Include the script in your html file and you're done !
+Download the [regen.js](https://raw.githubusercontent.com/Ensiss/regen/master/lib/regen.js) file and put it in your project. Include the script in your html file and you're done !
 
 ## How to use
 
