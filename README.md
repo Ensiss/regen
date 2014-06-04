@@ -71,12 +71,18 @@ console.log(regen("my regexp"));
 | ( )          | Group characters and regexes together, may be nested               |
 | &#124;       | Output the left or right expression                                |
 
+### Back references
+
+| Symbol       | Description                                                                            |
+| ------------ | -------------------------------------------------------------------------------------- |
+| ( ) \x       | `\x` (where `x` is a number from 1 to 9) will be replaced with the corresponding group |
+
 ## Exemples
 
-Ipv6: `([0-9a-f]{4}:){4}[0-9a-f]{4}`
+Ipv6: `(([0-9a-f]{4}):){4}\2`
 
-Ipv4 (not restricted to 255): `([0-9]{3}\\.){3}[0-9]{3}`
+Ipv4 (not restricted to 255): `(([0-9]{3})\\.){3}\2`
 
-Email address: `([rtnsd][aeiou]){2,3}\\.([rtnsd][aeiou]){2,3}@(github|gmail|yahoo|yopmail)\\.(com|org|info)`
+Email address: `(([rtnsd][aeiou]){2,3})\\.\\1@(github|gmail|yahoo|yopmail)\\.(com|org|info)`
 
 Comment: `(Hey|Hello|Hi), I just saw (this|your) (amazing|incredible|beautiful) project !{1,3}`
