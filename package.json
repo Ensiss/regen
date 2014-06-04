@@ -1,0 +1,32 @@
+{
+    "name": "re-gen",
+    "version": "0.9.1",
+    "description": "String generator using RegExp syntax",
+    "main": "lib/regen.js",
+    "bin": {
+	"regen": "./bin/regen"
+    },
+    "dependencies" : {
+    },
+    "scripts": {
+	"test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+	"type": "git",
+	"url": "https://github.com/ensiss/regen"
+    },
+    "keywords": [
+	"regexp",
+	"generator",
+	"string",
+	"random",
+	"nodejs",
+	"npm"
+    ],
+    "author": "Ensis",
+    "license": "MIT",
+    "bugs": {
+	"url": "https://github.com/ensiss/regen/issues"
+    },
+    "homepage": "https://github.com/ensiss/regen"
+}

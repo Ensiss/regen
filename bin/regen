@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+"use strict";
+
+process.argv.length < 3 && (console.log("Usage: regen regex [count]"), process.exit());
+
+var regen = require("../lib/regen")
+var repeat = /^[0-9]+$/.test(process.argv[3]) ? parseInt(process.argv[3], 10) : 1;
+
+for (var rep = 0; rep < repeat; rep++) {
+    console.log(regen(process.argv[2]));
+}
