@@ -3,13 +3,14 @@ var regen = require("../lib/regen.js");
 function test(gen, rx, title, count) {
     if (!count)
 	count = 100;
-    rx = RegExp("^" + rx + "$");
+    if (typeof rx == "string")
+	rx = RegExp("^" + rx + "$");
     process.stdout.write("\tTesting: " + title + "...");
     var failed = [];
     var success = 0;
     for (var i = 0; i < count; i++) {
 	var gend = regen(gen);
-	if (!rx.test(gend))
+	if ((rx && !rx.test(gend)) || (rx === false && rx != gend))
 	    failed.indexOf(gend) == -1 && failed.push(gend);
 	else
 	    success++;
@@ -47,3 +48,15 @@ console.log("Back references");
 test("([0-9]{3}) - \\1", "[0-9]{3} - [0-9]{3}", "Back reference");
 test("(([0-9]){3}) - \\1\\2", "[0-9]{3} - [0-9]{4}", "Back reference 2");
 console.log("");
+
+console.log("Error handling");
+test("(123", false, "Matching parenthesis");
+test("[123", false, "Matching brackets");
+test("[z-a]", false, "Character range");
+test("o{", false, "Matching repeater");
+test("o{1", false, "Matching repeater");
+test("o{a}", false, "Repeater format");
+test("o{5,1}", false, "Repeater format");
+test("\\0", false, "Back reference 0");
+test("(lol) \\2", false, "Back reference");
+console.log(regen(""));
